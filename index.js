@@ -62,11 +62,8 @@ function makePersonObject(id, name, email) {
  * the returned value should look like `Hello, my name is Leia`.
 */
 
-function getName(name) {
-  const personTwo = {
-    name: {name},
-  };
-  return `Hello, my name is ${personTwo.name}`;
+function getName(object) {
+  return "Hello, my name is " + object.name;
 };
 
 
@@ -177,13 +174,17 @@ function getCarInfoByIndex(inventory, index) {
  * 
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
-*/
-function getLastCarInfo(inventory) {
+*/function getLastCarInfo(inventory) {
+  const lastCarInfo = inventory[inventory.length-1];
+  return `This is a ${lastCarInfo.car_make} ${lastCarInfo.car_model}`;
+};
+  
+/*function getLastCarInfo(inventory) {
   const lastCarInfo = inventory.find(function(item){
     return item;
   })
   return `This is a ${inventory[inventory.length -1].car_make} ${inventory[inventory.length -1].car_model}`;
-}; 
+}; */
 
 
 
@@ -200,8 +201,9 @@ function getLastCarInfo(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(inventory, id) {
-  /* code here */
-}
+  return `This is a ${inventory[id-1].car_make} ${inventory[id-1].car_model}`
+  };
+
 
 /**
  * ### Challenge `sortCarInventory`
